@@ -24,13 +24,13 @@ Subset the data so that you create a new data frame that contains
 cars that get 23 or more mpg (miles per gallon). Save it to a new data
 frame called efficient.
 ```{r}
-
+efficient <- subset(mtcars, mpg >= 23)
 ```
 
 3. How many cars get more than 23 mpg? Use one of the commands you
 learned in the demystifying.R to answer this question.
 ```{r}
-
+dim(efficient)
 ```
 
 4. We can also use logical operators to find out which car(s) get greater
@@ -66,13 +66,15 @@ Now you try some.
 6. Print the cars that have a 1/4 mile time (qsec) less than or equal to
 16.90 seconds to the console.
 ```{r}
-
+subset(mtcars, qsec <= 16.9 - 1/4)
 ```
 
 7. Save the subset of cars that weigh under 2000 pounds (weight is measured in lb/1000)
 to a variable called lightCars. Print the numbers of cars and the subset to the console.
 ```{r}
-
+lightcars <- subset(mtcars, wt < 2)
+dim(lightcars)
+lightcars
 ```
 
 8. You can also create new variables in a data frame. Let's say you wanted
@@ -104,7 +106,7 @@ Open the table of values to see what values year takes on.
 
 Drop the year variable from the data set.
 ```{r}
-
+mtcars <- subset(mtcars, select = -year)
 ```
 
 
@@ -137,6 +139,11 @@ work space.
 ```{r}
 rm(cond)
 rm(efficient)
+rm(mystery)
+rm(numbers)
+rm(udacious)
+rm(illiteracy)
+rm(rigion2, rigion4)
 ```
 
 Save this file if you haven't done so yet.
@@ -148,8 +155,8 @@ need the knitr package to do that so let's install that now. **Uncomment** the
 following two lines of code and run them.
 
 ```{r}
-# install.packages('knitr', dependencies = T)
-# library(knitr)
+install.packages('knitr', dependencies = T)
+library(knitr)
 ```
 
 Once you've installed knitr, **comment** out the two lines of code above.
@@ -163,6 +170,9 @@ answer a question to continue on in Lesson 2.
 
 Which car(s) have an mpg (miles per gallon) greater than or equal to 30
 OR hp (horsepower) less than 60? Create an R chunk of code to answer the question.
+```{r}
+subset(mtcars, mpg >= 30 | hp < 60)
+```
 
 
 
